@@ -1,0 +1,17 @@
+conda deactivate
+
+source devel/setup.bash
+roslaunch unitree_guide gazeboSim.launch rname:=go2
+
+
+source devel/setup.bash
+sudo ./devel/lib/unitree_guide/junior_ctrl
+
+
+source devel/setup.bash
+roslaunch unitree_guide go2_gmapping.launch 
+
+source devel/setup.bash
+roslaunch unitree_move_base rvizMoveBase.launch 
+
+rosrun map_server map_saver -f name
